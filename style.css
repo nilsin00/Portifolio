@@ -1,0 +1,471 @@
+/* ===== cores e fontes ===== */
+:root {
+  --fundo: #14112b;
+  --caixa: #1f1b3f;
+  --caixa2: #2b2658;
+  --borda: #4a4391;
+  --texto: #f1eefc;
+  --texto-claro: #b9b2de;
+  --vermelho: #ff5d73;
+  --amarelo: #ffc857;
+  --roxo: #a99bff;
+  --destaque: #ffc857;
+  --escuro: #14112b;
+}
+
+/* tema claro (a classe é colocada no body pelo JavaScript) */
+body.claro {
+  --fundo: #f4f1ff;
+  --caixa: #ffffff;
+  --caixa2: #ebe6ff;
+  --borda: #2a2552;
+  --texto: #1d1840;
+  --texto-claro: #5a5389;
+  --vermelho: #d92f4b;
+  --roxo: #6a55e0;
+  --destaque: #d92f4b;
+}
+
+/* ===== geral ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  background-color: var(--fundo);
+  color: var(--texto);
+}
+
+a {
+  color: var(--destaque);
+}
+
+/* ===== estrutura da página (sidebar + header + main + footer) ===== */
+.pagina {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar conteudo"
+    "sidebar footer";
+  min-height: 100vh;
+}
+
+/* ===== sidebar ===== */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--caixa);
+  border-right: 3px solid var(--borda);
+  padding: 25px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.foto {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--borda);
+  box-shadow: 5px 5px 0 var(--amarelo);
+  margin-bottom: 15px;
+}
+
+.nome {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.cargo {
+  font-size: 14px;
+  color: var(--texto-claro);
+  margin-bottom: 20px;
+}
+
+/* botões do menu na lateral */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.botao-menu {
+  display: block;
+  padding: 12px;
+  background-color: var(--caixa2);
+  color: var(--texto);
+  border: 3px solid var(--borda);
+  font-weight: 800;
+  text-decoration: none;
+  text-align: left;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.botao-menu:hover {
+  transform: translateX(5px);
+  border-color: var(--vermelho);
+}
+
+.botao-menu.ativo {
+  background-color: var(--amarelo);
+  color: var(--escuro);
+  border-color: var(--amarelo);
+}
+
+/* barra de xp */
+.xp {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.xp p {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+.barra {
+  height: 18px;
+  background-color: var(--caixa2);
+  border: 3px solid var(--borda);
+}
+
+.barra-cheia {
+  height: 100%;
+  width: 0;
+  background-color: var(--amarelo);
+  transition: width 0.4s;
+}
+
+.links-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.links-sidebar a {
+  padding: 5px 10px;
+  border: 2px solid var(--borda);
+  color: var(--texto);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.links-sidebar a:hover {
+  background-color: var(--amarelo);
+  color: var(--escuro);
+}
+
+/* ===== header ===== */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--caixa);
+  border-bottom: 3px solid var(--borda);
+}
+
+.titulo-header {
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+  color: var(--destaque);
+}
+
+#botao-tema {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 14px;
+  background-color: transparent;
+  color: var(--texto);
+  border: 3px solid var(--borda);
+  cursor: pointer;
+}
+
+#botao-tema:hover {
+  border-color: var(--vermelho);
+}
+
+/* ===== conteúdo ===== */
+.conteudo {
+  grid-area: conteudo;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  animation: aparecer 0.7s;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.conteudo h2 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.subtitulo {
+  font-size: 14px !important;
+  color: var(--destaque);
+  margin-bottom: 20px !important;
+}
+
+.texto p {
+  max-width: 650px;
+  margin-bottom: 12px;
+}
+
+/* ===== página inicial ===== */
+.apresentacao {
+  background-color: var(--caixa);
+  border: 3px solid var(--borda);
+  box-shadow: 8px 8px 0 var(--vermelho);
+  padding: 30px;
+}
+
+.apresentacao p {
+  max-width: 600px;
+  margin-bottom: 15px;
+}
+
+.frase {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--destaque);
+}
+
+#msg-xp {
+  margin-top: 15px;
+  font-size: 15px;
+  color: var(--texto-claro);
+}
+
+/* botões */
+.botao {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 20px;
+  margin-right: 10px;
+  background-color: var(--amarelo);
+  color: var(--escuro);
+  border: 3px solid var(--escuro);
+  box-shadow: 4px 4px 0 var(--vermelho);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--vermelho);
+}
+
+.botao-vazio {
+  background-color: transparent;
+  color: var(--texto);
+  border-color: var(--borda);
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--caixa);
+  border: 3px solid var(--borda);
+  border-top: 10px solid var(--cor-card);
+  padding: 20px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--texto-claro);
+}
+
+.card-vermelho { --cor-card: var(--vermelho); }
+.card-amarelo { --cor-card: var(--amarelo); }
+.card-roxo { --cor-card: var(--roxo); }
+
+/* ===== sobre ===== */
+.habilidade {
+  margin-bottom: 15px;
+}
+
+.habilidade p {
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.habilidade .barra-cheia {
+  background-color: var(--vermelho);
+}
+
+/* ===== interesses ===== */
+.interesse {
+  background-color: var(--caixa);
+  border: 3px solid var(--borda);
+  border-left: 12px solid var(--cor-card);
+  padding: 22px;
+}
+
+.interesse h3 {
+  margin-bottom: 8px;
+}
+
+.interesse p {
+  max-width: 600px;
+}
+
+/* ===== contato ===== */
+.contato {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 800;
+}
+
+input, textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  background-color: var(--caixa);
+  color: var(--texto);
+  border: 3px solid var(--borda);
+}
+
+input.erro, textarea.erro {
+  border-color: var(--vermelho);
+}
+
+form .botao {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+#aviso {
+  font-weight: 800;
+  color: var(--destaque);
+}
+
+.link-contato {
+  display: block;
+  padding: 14px;
+  margin-bottom: 12px;
+  background-color: var(--caixa);
+  border: 3px solid var(--borda);
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.link-contato:hover {
+  border-color: var(--amarelo);
+}
+
+.link-contato strong {
+  display: block;
+}
+
+.link-contato span {
+  color: var(--texto-claro);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+/* ===== footer ===== */
+.footer {
+  grid-area: footer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 30px;
+  background-color: var(--caixa);
+  border-top: 3px solid var(--borda);
+  color: var(--texto-claro);
+  font-size: 15px;
+}
+
+.links-footer {
+  display: flex;
+  gap: 15px;
+}
+
+/* ===== celular e tablet ===== */
+@media (max-width: 850px) {
+  .pagina {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "header"
+      "conteudo"
+      "footer";
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 3px solid var(--borda);
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+
+  .conteudo {
+    padding: 25px 15px;
+  }
+
+  .footer {
+    padding: 18px 20px;
+  }
+}

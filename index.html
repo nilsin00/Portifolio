@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Nilson Junior</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="pagina">
+
+    <aside class="sidebar">
+      <img src="foto.jpg" alt="Foto do Nilson" class="foto">
+      <h2 class="nome">Nilson Junior</h2>
+      <p class="cargo">Estudante de desenvolvimento web</p>
+
+      <nav class="menu">
+        <a href="index.html" class="botao-menu ativo">Início</a>
+        <a href="sobre.html" class="botao-menu">Sobre</a>
+        <a href="interesses.html" class="botao-menu">Interesses</a>
+        <a href="contato.html" class="botao-menu">Contato</a>
+      </nav>
+
+      <div class="xp">
+        <p id="nivel">Nível 1</p>
+        <div class="barra"><div id="barra-xp" class="barra-cheia"></div></div>
+      </div>
+
+      <div class="links-sidebar">
+        <a href="https://www.linkedin.com/in/nilson-grechi-knupp-junior-453096405/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/nilsin00" target="_blank">GitHub</a>
+        <a href="mailto:nilsonknuppgrechi@gmail.com">Gmail</a>
+      </div>
+    </aside>
+
+    <header class="header">
+      <h1 class="titulo-header">Portfólio do Nilson</h1>
+      <button id="botao-tema">Tema claro</button>
+    </header>
+
+    <main class="conteudo">
+
+      <section class="apresentacao">
+        <h2>Olá, eu sou o Nilson!</h2>
+        <p class="frase">Eu sou <span id="frase-mudando">estudante</span></p>
+        <p>Gosto de programar, de jogar e de ficar com a minha família. Este site é o meu portfólio, feito com HTML, CSS e JavaScript.</p>
+        <a href="https://github.com/nilsin00" target="_blank" class="botao">Ver meu GitHub</a>
+        <button id="botao-xp" class="botao botao-vazio">Ganhar XP</button>
+        <p id="msg-xp">Clica no botão pra ver a barra de XP da lateral subir.</p>
+      </section>
+
+      <section>
+        <h2 class="subtitulo">O que eu gosto</h2>
+        <div class="cards">
+          <div class="card card-vermelho">
+            <h3>Jogar</h3>
+            <p>É meu passa tempo preferido, é onde eu me desconecto da vida real e esqueço um pouco de tudo.</p>
+          </div>
+          <div class="card card-amarelo">
+            <h3>Programar</h3>
+            <p>Gosto da dificuldade de aprender a programar, mas prefiro a sensação de ver um código funcionando.</p>
+          </div>
+          <div class="card card-roxo">
+            <h3>Família</h3>
+            <p>Sair e passar o tempo com quem eu gosto, além de viajar sempre e me divertir com eles.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <span id="ano">2026</span> Nilson Grechi Knupp Junior</p>
+      <div class="links-footer">
+        <a href="https://www.linkedin.com/in/nilson-grechi-knupp-junior-453096405/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/nilsin00" target="_blank">GitHub</a>
+        <a href="mailto:nilsonknuppgrechi@gmail.com">Gmail</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
