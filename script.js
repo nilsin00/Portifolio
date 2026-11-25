@@ -1,4 +1,3 @@
-// ----- tema claro e escuro -----
 var botaoTema = document.getElementById("botao-tema");
 
 function mudarTema() {
@@ -15,22 +14,16 @@ function mudarTema() {
 
 botaoTema.addEventListener("click", mudarTema);
 
-// quando a página abre, vê qual tema estava salvo
 if (localStorage.getItem("tema") == "claro") {
   document.body.classList.add("claro");
   botaoTema.textContent = "Tema escuro";
 }
 
-
-// ----- ano do rodapé -----
 document.getElementById("ano").textContent = new Date().getFullYear();
 
-
-// ----- barra de XP -----
 var nivel = 1;
 var xp = 0;
 
-// pega o que estava salvo (pra não perder quando troca de página)
 if (localStorage.getItem("nivel")) {
   nivel = Number(localStorage.getItem("nivel"));
   xp = Number(localStorage.getItem("xp"));
@@ -59,14 +52,11 @@ function ganharXp() {
 
 atualizarXp();
 
-// o botão só existe na página inicial, por isso o if
 var botaoXp = document.getElementById("botao-xp");
 if (botaoXp) {
   botaoXp.addEventListener("click", ganharXp);
 }
 
-
-// ----- frase que muda na página inicial -----
 var fraseMudando = document.getElementById("frase-mudando");
 
 if (fraseMudando) {
@@ -87,8 +77,6 @@ if (fraseMudando) {
   }, 2000);
 }
 
-
-// ----- formulário de contato -----
 var formulario = document.getElementById("formulario");
 
 if (formulario) {
@@ -101,7 +89,6 @@ if (formulario) {
     var aviso = document.getElementById("aviso");
     var tudoCerto = true;
 
-    // tira o vermelho dos campos antes de conferir de novo
     nome.classList.remove("erro");
     email.classList.remove("erro");
     mensagem.classList.remove("erro");
@@ -128,7 +115,6 @@ if (formulario) {
 
     aviso.textContent = "Obrigado, " + nome.value + "! Abrindo seu e-mail...";
 
-    // abre o programa de e-mail com a mensagem pronta
     var assunto = encodeURIComponent("Contato pelo portfólio");
     var texto = encodeURIComponent("Nome: " + nome.value + "\nE-mail: " + email.value + "\n\n" + mensagem.value);
     window.location.href = "mailto:nilsonknuppgrechi@gmail.com?subject=" + assunto + "&body=" + texto;
