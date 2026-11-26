@@ -61,10 +61,9 @@ var fraseMudando = document.getElementById("frase-mudando");
 
 if (fraseMudando) {
   var frases = [
-    "estudante",
-    "gamer",
-    "programador em início de carreira",
-    "muito família"
+    "Viciado em viver",
+    "Rato das coisas",
+    "programador em fase inicial",
   ];
   var posicao = 0;
 
